@@ -109,8 +109,8 @@ extreme, and it was run properly:
 
 | raid, market entry, 2R target | per trade | t | win rate (null 33.3%) |
 |---|---|---|---|
-| **faded** | -0.200R | -181 | 26.7% |
-| **followed** | -0.150R | -81 | 28.4% |
+| **faded** | -0.215R | -256 | 26.2% |
+| **followed** | -0.207R | -194 | 26.5% |
 
 **Both directions lose, on every instrument.** The win rate sits below the null whichever way you point the trade,
 which means the shortfall was never about direction. It is geometry and cost: a 2R target with a stop just beyond

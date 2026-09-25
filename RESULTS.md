@@ -118,8 +118,8 @@ own stop.
 
 | raid, market entry, 2R target | per trade | t | win rate (null 33.3%) |
 |---|---|---|---|
-| faded | **−0.200R** | −181 | 26.7% |
-| followed | **−0.150R** | −81 | 28.4% |
+| faded | **-0.215R** | -256 | 26.2% |
+| followed | **-0.207R** | -194 | 26.5% |
 
 **Both directions lose, on every instrument tested.** Pre-registered kill condition 1 fires: the asymmetry is not
 tradeable. It is not even directional — a win rate below the null on *both* sides means the shortfall comes from
