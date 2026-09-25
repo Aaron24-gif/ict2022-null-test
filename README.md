@@ -154,5 +154,5 @@ mistakes that will otherwise silently break your reproduction (spread in points 
 - Five false positives were found and killed **in this programme's own code** before publication, each caused by
   a bug rather than by the market. They are logged rather than quietly fixed.
 - One sealed out-of-sample period exists and was never loaded. It is not spent on a model that fails in-sample.
-- This is research code. It is published because the model does not work; it is not a trading system, and
-  nothing here is advice.
+- This is research code, published because the model does not work. It is not a trading system, it is not
+  trading advice, and nothing here is a recommendation. If you trade it anyway, that is on you.
