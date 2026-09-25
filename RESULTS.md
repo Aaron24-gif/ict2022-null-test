@@ -24,7 +24,7 @@ By killzone: NY +0.025, London −0.028. By side: long +0.028, short −0.009.
 ## STAGE 2 — component decomposition (bar |t| >= 3.75), Nasdaq first
 | component | London | NY | reading |
 |---|---|---|---|
-| A raid alone | **−0.222R, t −35.2** | **−0.219R, t −36.4** | 92k trades, win 25.9% vs the 33.3% null. Raids are FOLLOWED, not faded |
+| A raid alone | **−0.222R, t −35.2** | **−0.219R, t −36.4** | 92k trades, win 25.9% vs the 33.3% null. See Amendment 2 below before reading a direction into this |
 | B raid + displacement | −0.137 | −0.109 | displacement does not rescue it |
 | C raid + MSS | −0.157 | −0.131 | nor does the structure break |
 | F displacement alone | −0.120, t −11.7 | −0.075, t −8.2 | 41k trades; displacement alone is negative |
@@ -93,7 +93,7 @@ independent AI reconstructions, does not have an edge.
 
 1. The complete model lands **exactly on the barrier-race null** (33.3% win rate at a 2R target, PF 1.003).
 2. The decomposition shows **every named component is negative on its own** — the raid, the displacement, the MSS.
-   Raids are followed, not faded: −0.22R, t −35 on 92,000 trades.
+   Fading a raid loses −0.22R, t −35 on 92,000 trades - but so does following it (see Amendment 2).
 3. The only positive arms are the ones containing a **limit order**, and a limit placed at a **fake** gap does
    just as well — so the FVG is not a location, it is an excuse to bid below the market.
 4. That bid-side premium **does not survive an honest fill**: −0.21R, t −39 across 64,358 trades, 46 of 48 arms negative.
@@ -105,3 +105,26 @@ No Stage 3 variant search is run: there is nothing to vary. The model's own comp
 **Branch CLOSED.** Reusable output kept: the raid-follow-through asymmetry (a raid is a continuation signal, not a
 reversal one, on every instrument tested) and the touch-vs-through fill correction, which now applies to every
 limit-entry test in the programme.
+
+## AMENDMENT 2 — raid as CONTINUATION (the correction)
+
+Component A showed that fading a liquidity raid loses 0.222R per trade with a t of −35 on 92,000 trades and a
+25.9% win rate against a 33.3% null. The obvious inference is that raids are followed rather than faded.
+
+That inference was pre-registered as a hypothesis and **traded**, not negated — negating a fade's R hands the
+reversed trade two free spreads and a mirrored stop it never paid for. `flip=True` reverses the side at signal
+creation and moves the stop to the raid bar's opposite extreme, so the continuation pays its own spread and its
+own stop.
+
+| raid, market entry, 2R target | per trade | t | win rate (null 33.3%) |
+|---|---|---|---|
+| faded | **−0.200R** | −181 | 26.7% |
+| followed | **−0.150R** | −81 | 28.4% |
+
+**Both directions lose, on every instrument tested.** Pre-registered kill condition 1 fires: the asymmetry is not
+tradeable. It is not even directional — a win rate below the null on *both* sides means the shortfall comes from
+the trade's geometry and its cost, not from which way it points. A 2R target with a stop just beyond the raid
+extreme is reached less than a third of the time either way.
+
+**Standing lesson, now in the programme's diagnostics: a losing result does not tell you the other side wins.**
+To claim the reverse, trade the reverse.

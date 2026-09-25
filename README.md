@@ -86,27 +86,38 @@ The fill assumption was worth **+0.24R per trade** — and it was producing the 
 
 ---
 
-## The part that is not a null result
+## The mistake I nearly published
 
-The decomposition runs each clause of the model alone. Every one is negative, but one is enormous:
+The decomposition runs each clause of the model alone. Every one is negative, and one is enormous:
 
 | component | London | NY |
 |---|---|---|
-| **raid alone, faded** | **−0.222R, t −35.2** | **−0.219R, t −36.4** |
-| raid + displacement | −0.137 | −0.109 |
-| raid + MSS | −0.157 | −0.131 |
-| displacement alone | −0.120 | −0.075 |
-| full model, market entry instead of limit | −0.145 | −0.116 |
+| **raid alone, faded** | **-0.222R, t -35.2** | **-0.219R, t -36.4** |
+| raid + displacement | -0.137 | -0.109 |
+| raid + MSS | -0.157 | -0.131 |
+| displacement alone | -0.120 | -0.075 |
+| full model, market entry instead of limit | -0.145 | -0.116 |
 
-92,000 trades at a 25.9% win rate against a 33.3% null. **Liquidity raids are followed, not faded**, on every
-instrument tested, in both halves of the sample. The book's central directional claim is backwards, and the
-effect is one of the largest in the study — pointing the wrong way.
+Fading a liquidity raid loses 0.22R per trade with a t of -35 across 92,000 trades. The obvious reading - and the
+one this README carried in an earlier draft - is that raids are *followed*, not faded, and that the book's central
+directional claim is backwards.
 
-Whether the reverse is *tradeable* is a separate question with its own pre-registration (`PREREG.md`,
-Amendment 2), because a fade's loss is not automatically a continuation's profit: negating the R would hand the
-reversed trade two free spreads and a stop it never paid for. It has to be traded to be claimed.
+**That reading is wrong, and the pre-registration is what caught it.** Amendment 2 required the reverse to be
+*traded* rather than inferred, because negating a fade's result hands the reversed trade two free spreads and a
+stop it never paid for. So the side was flipped at signal time and the stop mirrored to the raid bar's opposite
+extreme, and it was run properly:
 
----
+| raid, market entry, 2R target | per trade | t | win rate (null 33.3%) |
+|---|---|---|---|
+| **faded** | -0.200R | -181 | 26.7% |
+| **followed** | -0.150R | -81 | 28.4% |
+
+**Both directions lose, on every instrument.** The win rate sits below the null whichever way you point the trade,
+which means the shortfall was never about direction. It is geometry and cost: a 2R target with a stop just beyond
+the raid extreme is reached less than a third of the time either way, and the spread does the rest.
+
+The general lesson is the one worth keeping: **a losing result does not tell you the other side wins.** If you
+want to claim the reverse, trade the reverse.
 
 ## Running it
 
